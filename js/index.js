@@ -19,6 +19,10 @@ function arrumaMes() {
 
 function getCurrentDate(){
     const date = new Date();
+    if (date.getDate < 10){
+        return "0" + date.getDate() + "/" + arrumaMes() + "/" + date.getFullYear();
+        
+    }
     return date.getDate() + "/" + arrumaMes() + "/" + date.getFullYear();
 }
 
