@@ -7,6 +7,10 @@ const pontoDialog = document.getElementById("pontoDialog");
 const baterPontoButton = document.querySelector(".Bater-ponto");
 const fecharDialogButton = document.getElementById("fecharDialog");
 
+// Seleciona os elementos dentro do diálogo para exibir a data e a hora
+const dialogData = document.getElementById("dialogData");
+const dialogHora = document.getElementById("dialogHora");
+
 // Atualiza o dia da semana
 const diasDaSemana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
 function getDayOfWeek() {
@@ -20,6 +24,10 @@ horaAtual.textContent = getCurrentTime();
 
 // Abre o diálogo ao clicar no botão "Bater em CLT - ponto"
 baterPontoButton.addEventListener('click', () => {
+    // Atualiza a data e hora dentro do diálogo
+    dialogData.textContent = "Data: " + getCurrentDate(false);
+    dialogHora.textContent = "Hora: " + getCurrentTime();
+
     pontoDialog.showModal(); // Abre o diálogo como modal
 });
 
