@@ -11,6 +11,8 @@ const fecharDialogButton = document.getElementById("fecharDialog");
 const dialogData = document.getElementById("dialogData");
 const dialogHora = document.getElementById("dialogHora");
 
+let dialogInterval;
+
 // Atualiza o dia da semana
 const diasDaSemana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
 function getDayOfWeek() {
@@ -22,21 +24,28 @@ diaSemana.textContent = getDayOfWeek();
 dataAtual.textContent = getCurrentDate(false);  // false para formato padrão dd/mm/yyyy
 horaAtual.textContent = getCurrentTime();
 
-// Abre o diálogo ao clicar no botão "Bater em CLT - ponto"
+// Abre o diálogo e começa a atualizar dinamicamente a data e a hora
 baterPontoButton.addEventListener('click', () => {
     // Atualiza a data e hora dentro do diálogo
     dialogData.textContent = "Data: " + getCurrentDate(false);
     dialogHora.textContent = "Hora: " + getCurrentTime();
 
     pontoDialog.showModal(); // Abre o diálogo como modal
+
+    // Atualiza dinamicamente a data e a hora a cada segundo dentro do diálogo
+    dialogInterval = setInterval(() => {
+        dialogData.textContent = "Data: " + getCurrentDate(false);
+        dialogHora.textContent = "Hora: " + getCurrentTime();
+    }, 1000);
 });
 
-// Fecha o diálogo ao clicar no botão "Fechar"
+// Fecha o diálogo e para de atualizar a data e hora
 fecharDialogButton.addEventListener('click', () => {
     pontoDialog.close(); // Fecha o diálogo
+    clearInterval(dialogInterval); // Para a atualização dinâmica
 });
 
-// Atualiza a hora em tempo real
+// Atualiza a hora em tempo real na página principal
 setInterval(() => {
     horaAtual.textContent = getCurrentTime();
 }, 1000);
