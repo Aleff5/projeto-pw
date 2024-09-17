@@ -1,7 +1,7 @@
 /* Estilos gerais para o body */
+/* Estilos gerais para o body */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f5;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,7 +10,28 @@ body {
     justify-content: center;
     height: 100vh;
     color: #333;
+    animation: background-animation 10s infinite alternate;
 }
+
+/* Animação de fundo */
+@keyframes background-animation {
+    0% {
+        background-color: #f0f0f5;
+    }
+    25% {
+        background-color: #d1e0ff;
+    }
+    50% {
+        background-color: #b3ffd9;
+    }
+    75% {
+        background-color: #ffd1dc;
+    }
+    100% {
+        background-color: #f0f0f5;
+    }
+}
+
 
 /* Estilo para o topo da página */
 .topper {
@@ -125,3 +146,54 @@ dialog {
         font-size: 12px;
     }
 }
+
+/* Estilo para o select */
+select {
+    padding: 10px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #f0f0f5;
+    border: 1px solid #ccc;
+}
+
+/* Botão de confirmação */
+#confirmarAcao {
+    background-color: #4caf50;
+}
+
+#confirmarAcao:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para a mensagem de confirmação do ponto */
+/* Estilo para a mensagem de confirmação do ponto */
+.confirmacao-ponto {
+    background-color: #534caf;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 20px; /* Mover para a parte superior da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    z-index: 1000;
+    display: none; /* Começa invisível */
+    transition: opacity 0.3s ease;
+    opacity: 0.8; /* Opacidade mais leve */
+}
+
+.confirmacao-ponto.oculto {
+    opacity: 0;
+    display: none;
+}
+
+.confirmacao-ponto.visivel {
+    display: block;
+    opacity: 0.8;
+}
+
+

@@ -17,13 +17,20 @@
     <dialog id="pontoDialog">
         <p id="dialogData">Data</p>
         <p id="dialogHora">Hora</p>
-        <button>Entrada</button>
-        <button>Intervalo</button>
-        <button>Volta Intervalo</button>
-        <button>Saída</button>
+        <select id="pontoAcao">
+            <option value="entrada">Entrada</option>
+            <option value="intervalo">Intervalo</option>
+            <option value="volta_intervalo">Volta Intervalo</option>
+            <option value="saida">Saída</option>
+        </select>
+        <button id="confirmarAcao">Confirmar</button>
         <button id="fecharDialog">Fechar</button>
     </dialog>
-
+    <div id="confirmacaoPonto" class="confirmacao-ponto oculto">
+        <p id="mensagemConfirmacao"></p>
+    </div>
+    
+    
     <script src="js/index.js"></script>
 </body>
 </html>
